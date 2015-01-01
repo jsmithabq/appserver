@@ -1,0 +1,278 @@
+/*
+Still no widespread support for CSS variables, so maintain "marker
+variables" to mark where variables should exist--eventually.  The
+sub-colors.rb script reads text between the hyphenated lines into a
+YAML structure (dictionary) and then replaces the variable values in
+the CSS settings below, where the pattern is the variable name in
+comments followed by a space, followed by an RGB color value.
+
+=====================
+"$con_bg" : "#BFBFBF"
+"$bkg_bg" : "#F9D8D8" #FCE8E8
+"$gen_bg" : "#E8C8C8" #E3B9B9
+"$lgo_bg" : "#A79E9E"
+"$bar_bg" : "#948888"
+"$hvr_bg" : "#827272"
+"$sel_bg" : "#F9D8D8"
+"$hvr_fg" : "#733535"
+"$cls_fg" : "#732525"
+"$bar_fg" : "#222222"
+"$lgo_fg" : "#222222" #732525
+"$lnk_fg" : "#222222"
+"$row_fg" : "#222222"
+=====================
+
+*/
+
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: arial, sans-serif;
+    background: /* $bkg_bg */ #F9D8D8;
+    min-width: 850px;
+    overflow: visible;
+  }
+
+  a {
+    color: /* $lnk_fg */ #222222;
+  }
+
+  h1, h2, h3, h4 {
+    color: #3E3E3E;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18pt;
+    font-weight: bold;
+    font-style: italic;
+    color: #3E3E3E;
+    margin: 10px;
+  }
+
+  .nav-div {
+    overflow-x:  scroll;
+  }
+
+  .vertical-space {
+    height: 10px;
+    width: 100%;
+    background: /* $bkg_bg */ #F9D8D8;
+  }
+
+  .small-vertical-space {
+    height: 5px;
+    width: 100%;
+    background: /* $bkg_bg */ #F9D8D8;
+  }
+
+  .banner {
+    height: 10px;
+    font-size: 18pt;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    color: /* $cls_fg */ #732525;
+    text-align: center;
+  }
+
+  .invisible-rule {
+    border-style: none;
+    color: /* $bkg_bg */ #F9D8D8;
+    text-decoration: none;
+    height: 40px;
+  }
+
+  #header {
+    padding-top: 0px;
+    width: 100%;
+  }
+
+  #footer {
+    padding-top: 2px;
+    width: 100%;
+  }
+
+  #logo-a {
+    color: /* $lgo_fg */ #222222;
+    text-decoration: none;
+    /*vertical-align: baseline;*/
+    /*text-align: center;*/
+  }
+
+  #bar-a {
+    color: /* $bar_fg */ #222222;
+    text-decoration: none;
+    /*vertical-align: baseline;*/
+    /*text-align: center;*/
+  }
+
+  #zulu-date {
+    color: /* $bar_fg */ #222222;
+    text-decoration: none;
+    /*vertical-align: baseline;*/
+    /*text-align: center;*/
+  }
+
+  #mast {
+    border-radius: 3px 0px 0px 3px;
+    width: 100%;
+  }
+
+  .logo {
+    background: /* $lgo_bg */ #A79E9E;
+    border-radius: 3px 0px 0px 3px;
+    float: left;
+    height: 50px;
+    width: 20%;
+    font-size: 40px;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    color: /* $lgo_fg */ #222222;
+    /*vertical-align: middle;*/
+    text-align: center;
+  }
+
+  .toolbar {
+    background: /* $bar_bg */ #948888;
+    border-radius: 0px 3px 3px 0px;
+    float: right;
+    height: 50px;
+    width: 80%;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  .toolbar table tr td {
+    vertical-align: middle;
+    text-align: right;
+    padding: 3px;
+  }
+
+  .dropdown-menu li a:hover {
+    background: /* $gen_bg */ #E8C8C8;
+  }
+
+  .dropdown-list {
+    text-align: left;
+  }
+
+  .toolbar-btn {
+    background: /* $lgo_bg */ #A79E9E;
+    color: /* $bar_fg */ #222222;
+    border-color: /* $lgo_bg */ #A79E9E;
+    border-style: none; /* solid */
+  }
+
+  .toolbar-btn:hover {
+    background: /* $hvr_bg */ #827272;
+  }
+
+  .selectboxit-list > .selectboxit-focus > .selectboxit-option-anchor {
+    background: /* $sel_bg */ #F9D8D8;
+  }
+
+  .selectboxit-selected {
+    background: /* $sel_bg */ #F9D8D8;
+  } 
+
+  .selectboxit-option .selectboxit-option-anchor:hover {
+    background: /* $gen_bg */ #E8C8C8;
+  }
+
+  .main-content {
+    /*background: // $con_bg // #BFBFBF;*/
+    width: 100%;
+    overflow-y: visible;
+  }
+
+  .panel-content {
+    background: /* $gen_bg */ #E8C8C8;
+    margin-top: 10;
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow-y: visible;
+  }
+
+  .main-form {
+    border-radius: 3px;
+    color: #3E3E3E;
+    margin: 0px;
+    padding: 3px;
+    overflow-y: visible;
+  }
+
+  .main-content > .panel-content > li:hover, .main-content > .panel-content > li:hover a {
+    background: /* $hvr_bg */ #827272;
+    color: white;
+  }
+
+  .main-content > .panel-content > .active {
+    background: /* $bar_bg */ #948888;
+  }
+
+  .main-content > ul {
+    /*float: left;*/
+    border-radius: 3px 3px 3px 3px;
+    border: solid 0px #C8C8C8;
+    /*padding: 7px 11px;*/
+    width: 100%;
+  }
+
+  .main-content > .panel-content > li {
+    float: left;
+    /*background: #C8C8C8;*/
+    background: /* $lgo_bg */ #A79E9E;
+    padding: 5px 19px;
+    margin: 5px 2px 5px 0px;
+    color: black;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .main-content > .panel-content > li a {
+    text-decoration: none;
+    color: white;
+    font-size: 13pt;
+    font-style: italic;
+    text-shadow: 1px 0px 3px #9D9D9D;
+  }
+
+  .main-content > .panel-content > li:nth-child(1) {
+    border-radius: 4px 0px 0px 4px;
+    margin-left: 1px;
+  }
+
+  .main-content > .panel-content > li:nth-child(3) {
+    border-radius: 0px 4px 4px 0px;
+  }
+
+  .tabp td {
+    padding: 3px;
+    text-align: right;
+  }
+
+  .tabp label {
+    font-size: 12pt;
+    font-weight: normal;
+  }
+
+  .tabp input {
+    font-size: 12pt;
+    font-weight: normal;
+    size: 10;
+  }
+
+  .input-text-left {
+    text-align: left;
+  }
+
+  .input-text-right {
+    text-align: right;
+  }

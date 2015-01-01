@@ -1,0 +1,14 @@
+
+{
+  "name": "Wildcat",
+  "version": "0.0.1",
+  "description": "An application server for RPA mission planning",
+  "main": "server.js",
+  "dependencies": {
+    "express" : "latest",
+    "mongoose" : "latest",
+    "body-parser" : "latest",
+    "method-override" : "latest"
+  }
+}
+

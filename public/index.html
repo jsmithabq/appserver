@@ -1,0 +1,305 @@
+<!doctype html>
+<html>
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+-->
+<head>
+  <meta charset="utf-8">
+  <!--<script src="js/libs/angular.js"></script>-->
+  <script src="libs/angular/angular.min.js"></script>                                                                                                                 
+  <script src="libs/angular-route/angular-route.min.js"></script>
+  <!--<script src="js/libs/ui-bootstrap-tpls-0.12.0.js"></script>-->
+  <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <!--<script src="js/libs/jquery.min.js"></script>-->
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <!--<script src="js/libs/jquery-ui.min.js"></script>-->
+  <script src="libs/jquery-ui/jquery-ui.min.js"></script>
+  <script src="js/libs/jquery.selectBoxIt.min.js"></script>
+  <script src="js/controllers/DropdownCtrl.js"></script>
+  <script src="js/controllers/MainCtrl.js"></script>
+  <script src="js/controllers/PlanCtrl.js"></script>
+  <script src="js/controllers/UserCtrl.js"></script>
+  <script src="js/controllers/ProfileCtrl.js"></script>
+  <script src="js/services/PlanService.js"></script>
+  <script src="js/services/UserService.js"></script>
+  <script src="js/services/ProfileService.js"></script>
+  <script src="js/core-ui.js"></script>
+  <!--<script src="js/angular-ui.js"></script>-->
+  <script src="js/account.js"></script>
+  <script src="js/appRoutes.js"></script>
+  <script src="js/app.js"></script>                                                                                                                                   
+  <!-- <link rel="stylesheet/less" type="text/css" href="styles.less" /> -->
+  <title>AppServer</title>
+  <!--
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+  -->
+  <!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />-->
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery.selectBoxIt.css" />
+  <link id="style-adobe" rel="stylesheet" type="text/css" href="css/style-adobe.css" />
+  <link id="style-artic" rel="alternate stylesheet" type="text/css" href="css/style-artic.css" />
+  <link id="style-atlantic" rel="alternate stylesheet" type="text/css" href="css/style-atlantic.css" />
+  <link id="style-c4cr" rel="alternate stylesheet" type="text/css" href="css/style-c4cr.css"/>
+  <link id="style-creamsicle" rel="alternate stylesheet" type="text/css" href="css/style-creamsicle.css" />
+  <link id="style-desert" rel="alternate stylesheet" type="text/css" href="css/style-desert.css" />
+  <link id="style-foam" rel="alternate stylesheet" type="text/css" href="css/style-foam.css" />
+  <link id="style-overcast" rel="alternate stylesheet" type="text/css" href="css/style-overcast.css" />
+  <link id="style-pacific" rel="alternate stylesheet" type="text/css" href="css/style-pacific.css" />
+  <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script> -->
+</head>
+<body margin-top=3 ng-app="AppServer" ng-controller="MainController">
+  <div class="div-nav">
+  <div id="header">
+<!--
+    <% if @banner != "" %>
+      <p>(class="banner" align="center")= @banner</p>
+    <% end %>
+-->
+  </div>
+  <div id="mast">
+    <div class="logo">
+      <a id="logo-a" href="/index.html">AppServer</a>
+    </div>
+    <div ng-controller="DropdownController" class="toolbar">
+      <table class="toolbar">
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>
+            <span class="btn-group" dropdown on-toggle="toggled(open)" is-open="status.isopen">
+              <button type="button" class="btn btn-default dropdown-toggle toolbar-btn" dropdown-toggle ng-disabled="disabled">
+                Account <span class="caret"></span>
+              </button>
+              <ul class="dropdown-list dropdown-menu" role="menu">
+                <li><a href="#" onclick="login();">Login</a></li>
+                <li><a href="#" onclick="logout();">Logout</a></li>
+                <li><a href="#" onclick="register();">Register</a></li>
+              </ul>
+            </span>
+          </td>
+          <td>
+            <a id="zulu-date"></a>
+          </td>
+        </tr>
+      </table>
+    </div> <!-- toolbar -->
+  </div> <!-- mast -->
+  <hr class="invisible-rule">
+  <div class="main-content">
+    <ul class="tabp panel-content" ng-init="tab = 1">
+      <li class="tabp" ng-class="{active:tab===1}"><a href ng-click="tab = 1">Tab 1</a></li>
+      <li class="tabp" ng-class="{active:tab===2}"><a href ng-click="tab = 2">Tab 2</a></li>
+      <li class="tabp" ng-class="{active:tab===3}"><a href ng-click="tab = 3">Options</a></li>
+      <br><br>
+      <div ng-show="tab === 1">
+        <h4>Tab 1</h4>
+        <form class="form-horizontal main-form" role="form" action="/tab1" method="GET">
+          <table>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="distributor">Distributor:</label>
+              </td>
+              <td>
+                <input type="text" class="form-control input-text-right" id="distributor" name="distributor" size="10">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="region">Region:</label>
+              </td>
+              <td>
+                <input type="text" class="form-control input-text-right" id="region" name="region" size="10">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="fruit">Fruit:</label>
+              </td>
+              <td>
+              <div class="options-menu">
+                <select class="form-control" id="fruit" name="fruit">
+                  <option value="apple" selected>Apple</option>
+                  <option value="banana">Banana</option>
+                  <option value="peach">Peach</option>
+                  <option value="strawberry">Strawberry</option>
+                </select>
+              </div></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr class="form-group">
+              <td></td>
+              <td>
+                <input class="btn btn-default" id="collect" onclick="orangeBarrel();" type="button" value="Submit">
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div ng-show="tab === 2">
+        <h4>Tab 2</h4>
+        <form class="form-horizontal main-form" action="/tab2" method="GET">
+          <table>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="country">Country:</label>
+              </td>
+              <td>
+                <input type="text" class="form-control input-text-right" id="country" name="country" size="10">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="irrigation">Irrigation:</label>
+              </td>
+              <td>
+                <input type="text" class="form-control input-text-right" id="irrigation" name="irrigation" size="10">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="nuts">Nuts:</label>
+              </td>
+              <td>
+                <select class="form-control" id="nuts" name="nuts">
+                  <option value="almond" selected>Almond/option>
+                  <option value="brazil">Brazil</option>
+                  <option value="pecan">Pecan</option>
+                  <option value="walnut">Walnut/option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+            </tr>
+            <tr class="form-group">
+              <td></td>
+              <td>
+                <input class="btn btn-default" id="splat" onclick="orangeBarrel();" type="button" value="Submit">
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <div ng-show="tab === 3">
+        <h4>Session Status</h4>
+        <table>
+          <tr class="form-group">
+            <td>
+              <label for="status">User:</label>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+              <label id="status" style="font-weight: bold">Under construction...</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="since">Since:</label>
+            </td>
+            <td>&nbsp;</td>
+            <td>
+              <label id="since" style="font-weight: bold">Under construction...</label>
+            </td>
+          </tr>
+        </table>
+        <h4>User Profile</h4>
+        <form class="form-horizontal main-form" action="/options" method="POST">
+          <table>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="name">Name:</label>
+              </td>
+              <td>
+                <input class="form-control input-text-left" name="name" type="text" value="" size="30">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="password">Password (verify):</label>
+              </td>
+              <td>
+                <input class="form-control input-text-left" name="currentpassword" type="password" size="30">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="password">New Password:</label>
+              </td>
+              <td>
+                <input class="form-control input-text-left" name="newpassword" type="password" size="30">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="password">New Password (verify):</label>
+              </td>
+              <td>
+                <input class="form-control input-text-left" name="newpassword2" type="password" size="30">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="style">Style:</label>
+              </td>
+              <td>
+                <table>
+                  <tr class="form-group">
+                    <td>
+                      <select class="form-control" id='style' name='style'>
+                        <option value="adobe">Adobe</option>
+                        <option value="artic">Artic</option>
+                        <option value="atlantic">Atlantic</option>
+                        <option value="c4cr">C4CR</option>
+                        <option value="creamsicle">Creamsicle</option>
+                        <option value="desert">Desert</option>
+                        <option value="foam">Foam</option>
+                        <option value="overcast">Overcast</option>
+                        <option value="pacific">Pacific</option>
+                      </select>
+                    </td>
+                    <td>
+                        <input class="btn btn-default" onclick="changeStyle();" type="button" value="Preview">
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>&nbsp;</td>
+            </tr>
+            <tr class="form-group">
+              <td>&nbsp;</td>
+              <td>
+                <input class="btn btn-default" id="options" onclick="orangeBarrel();" type="button" value="Update">
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </ul>
+  </div>
+  <div id="footer">
+<!--
+    <% if @banner != "" %>
+      <p>(class="banner" align="center")= @banner</p>
+    <% end %>
+-->
+  </div>
+  </div> <!-- nav-div -->
+</body>
+</html>
