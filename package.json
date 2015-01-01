@@ -1,8 +1,8 @@
 
 {
-  "name": "Wildcat",
+  "name": "AppServer",
   "version": "0.0.1",
-  "description": "An application server for RPA mission planning",
+  "description": "An application server skeleton",
   "main": "server.js",
   "dependencies": {
     "express" : "latest",
