@@ -1,5 +1,5 @@
 
 module.exports = {
-  url : 'mongodb://user:password@ds061370.mongolab.com:61370/appserver'
+  url : 'mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/appserver'
 }
 

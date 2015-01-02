@@ -1,7 +1,7 @@
 
 var mongo = require('mongodb');
 var mc = mongo.MongoClient;
-mc.connect('mongodb://wcfields:PermianBasinOdessa@ds061370.mongolab.com:61370/wildcat', function(err, db) {
+mc.connect('mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/appserver', function(err, db) {
   if (err)
     console.log(err);
   var usersCollection = db.collection('User');

@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://wcfields:PermianBasinOdessa@ds061370.mongolab.com:61370/wildcat');
+mongoose.connect('mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/appserver');
 var Profile = mongoose.model('Profile', {style: String, bkg_bg: String, gen_bg: String});
 var adobe = new Profile({style: 'Adobe', bkg_bg: '#D1C9C9', gen_bg: 'B2A4A4'});
 var User = mongoose.model('User', {name: String, role: String, style: String});

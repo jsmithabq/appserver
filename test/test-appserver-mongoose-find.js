@@ -1,6 +1,6 @@
 
 var mongoose = require('mongoose');
-db = mongoose.createConnection('mongodb://wcfields:PermianBasinOdessa@ds061370.mongolab.com:61370/wildcat');
+db = mongoose.createConnection('mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/appserver');
 db.on('error', console.error.bind(console, 'connection error!'));
 db.once('open', function() {
   var userSchema = new mongoose.Schema({
