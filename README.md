@@ -29,15 +29,47 @@ Angular/Bootstrap Design
 ------------------------
 
 AppServer implements a custom tabbed main page positioned below a custom
-toolbar.  The tabbed design borrows some functionality from 
+toolbar.  The tabbed design borrows functionality from 
 [Hafiz Faraz's Tab Tutorial](http://blog.hfarazm.com/tabs-in-angularjs/).  The
 tabs have a minor resemblance to jQuery pills, but aligned visually more like
 tabs.  The custom toolbar is a div-based table altenative to a navigation bar.
 If an app only requires a series of dropdown menus, that is, homeogeneous
-content, the toolbar could be replaced by a navigation bar.  The custom toolbar
-supports heterogeneous content, such as the right-justified real-time UTC time
-display, as currently configured.  Lastly, AppServer employs
+content, the toolbar could be replaced by a navigation bar.  As currently
+configured, the custom toolbar supports heterogeneous content, such as the
+right-justified real-time UTC time display.  Lastly, AppServer employs
 [Greg Franko's SelectBoxIt](https://github.com/gfranko/jquery.selectBoxIt.js)
 for the demo content within the tabs, but, of course, each tab's contents should
-be replaced for each respective web application.
+be replaced based on to the requirements of each web application.
+
+Each div-based tabbed panel is defined within a form.  The forms can be
+configured for standard HTML processing by setting the button type to "submit",
+or remain as is with a button type of "button".  In the latter case, the form
+processing is handled through an on-click JavaScript event.
+
+Cascading Style Sheets
+----------------------
+
+The rightmost tab, an "Options" tab, includes a select box for style.  AppServer
+includes eight Cascading Style Sheets (CSSes) for various color styles.  The
+"Preview" button loads the selected style sheet.
+
+CSS styles are handled by setting one primary style sheet from multiple style
+sheets, the remaining style sheets set as alternates.
+
+AppServer does not use LESS.  Instead, it defines multiple identical style
+sheets, except for the color variations.  Because CSS variables are just now
+receiving preliminary support, AppServer employs pseudo CSS variables, defined
+near the top of each style sheet.  Colors are implemented using a
+comment-and-RGB-value scheme, for example:
+
+    #logo-a {
+      color: /* $lgo_fg */ #732525;
+      ...
+    }
+
+AppServer includes two 'sub-colors.*' scripts in 'binsh' that search for and
+replace each occurrence of the "color variable in comments" with e RGB value
+specified in the pseudo variable headers.
+
+
 
