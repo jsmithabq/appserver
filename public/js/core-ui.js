@@ -52,10 +52,10 @@ $(function() {
   $("select#style").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
-  $("select#collect-resolution").selectBoxIt(
+  $("select#fruit").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
-  $("select#splat-resolution").selectBoxIt(
+  $("select#nuts").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
 });
