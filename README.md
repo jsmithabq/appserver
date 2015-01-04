@@ -59,8 +59,16 @@ sheets, the remaining style sheets set as alternates.
 AppServer does not use LESS.  Instead, it defines multiple identical style
 sheets, except for the color variations.  Because CSS variables are just now
 receiving preliminary support, AppServer employs pseudo CSS variables, defined
-near the top of each style sheet.  Colors are implemented using a
-comment-and-RGB-value scheme, for example:
+near the top of each style sheet:
+
+    ====================
+    ...
+    "$lgo_fg" : "#732525"
+    ...
+    =====================
+
+
+Colors are implemented using a comment-and-RGB-value scheme, for example:
 
     #logo-a {
       color: /* $lgo_fg */ #732525;
@@ -68,8 +76,7 @@ comment-and-RGB-value scheme, for example:
     }
 
 AppServer includes two 'sub-colors.*' scripts in 'binsh' that search for and
-replace each occurrence of the "color variable in comments" with e RGB value
-specified in the pseudo variable headers.
+replace each occurrence of the "pseudo color variable following comment" with
+the RGB value specified in the pseudo variable definitions.
 
-
-
+This scheme will be replaced by CSS variables once they are widely supported.
