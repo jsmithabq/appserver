@@ -77,6 +77,5 @@ Colors are implemented using a comment-and-RGB-value scheme, for example:
 
 AppServer includes two 'sub-colors.*' scripts in 'binsh' that search for and
 replace each occurrence of the "pseudo color variable following comment" with
-the RGB value specified in the pseudo variable definitions.
-
-This scheme will be replaced by CSS variables once they are widely supported.
+the RGB value specified in the pseudo variable definitions.  This scheme can be
+replaced by CSS variables once they are widely supported.
