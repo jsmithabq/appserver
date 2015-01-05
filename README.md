@@ -67,7 +67,7 @@ sheets, except for color variations.  Because CSS variables are just now
 receiving preliminary support, AppServer employs pseudo CSS variables, defined
 near the top of each style sheet:
 
-    ====================
+    =====================
     ...
     "$lgo_fg" : "#732525"
     ...
@@ -91,4 +91,18 @@ AppServer includes two "sub-colors.*" scripts in 'binsh' that search for and
 substitute each occurrence of a "pseudo color variable comment plus RGB value"
 with the RGB value specified in the pseudo variable definitions.  This scheme
 can be replaced by CSS variables once they are widely supported.
+
+Dependencies
+------------
+
+Dependencies are handled through several configuration files:
+
+* 'package.json' -- Overall, particularly, MEAN-related, frameworks and packages
+* 'bower.json' -- Primarily, frontend-/UI-related frameworks and packages
+* 'config/db.js' -- MongoDB-related configuration settings
+
+Note that the 'package.json' and 'bower.json' aren't necessarily the entire set
+of required dependencies, because certain NPM-based installations are typically
+global, thus, not included in these JSON configuration files, for example, `NPM`,
+`bower`, `Node.js`, and OS-level library dependencies.
 
