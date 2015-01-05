@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <!--<script src="js/libs/angular.js"></script>-->
-  <script src="libs/angular/angular.min.js"></script>                                                                                                                 
+  <script src="libs/angular/angular.min.js"></script>
   <script src="libs/angular-route/angular-route.min.js"></script>
   <!--<script src="js/libs/ui-bootstrap-tpls-0.12.0.js"></script>-->
   <script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
@@ -29,7 +29,8 @@
   <!--<script src="js/angular-ui.js"></script>-->
   <script src="js/account.js"></script>
   <script src="js/appRoutes.js"></script>
-  <script src="js/app.js"></script>                                                                                                                                   
+  <script src="js/app.js"></script>
+
   <!-- <link rel="stylesheet/less" type="text/css" href="styles.less" /> -->
   <title>AppServer</title>
   <!--
@@ -52,13 +53,12 @@
 </head>
 <body margin-top=3 ng-app="appserver" ng-controller="MainController">
   <div class="div-nav">
-  <div id="header">
 <!--
-    <% if @banner != "" %>
-      <p>(class="banner" align="center")= @banner</p>
-    <% end %>
--->
+  <div id="header">
+    <p class="banner">Confidential</p>
+    <br>
   </div>
+-->
   <div id="mast">
     <div class="logo">
       <a id="logo-a" href="/index.html">AppServer</a>
@@ -292,13 +292,11 @@
       </div>
     </ul>
   </div>
-  <div id="footer">
 <!--
-    <% if @banner != "" %>
-      <p>(class="banner" align="center")= @banner</p>
-    <% end %>
--->
+  <div id="footer">
+    <p class="banner">Confidential</p>
   </div>
+-->
   </div> <!-- nav-div -->
 </body>
 </html>

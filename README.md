@@ -101,8 +101,8 @@ Dependencies are handled through several configuration files:
 * 'bower.json' -- Primarily, frontend-/UI-related frameworks and packages
 * 'config/db.js' -- MongoDB-related configuration settings
 
-Note that the 'package.json' and 'bower.json' aren't necessarily the entire set
-of required dependencies, because certain NPM-based installations are typically
+Note that 'package.json' and 'bower.json' don't constitute the entire set of
+required dependencies, because certain NPM-based installations are typically
 global, thus, not included in these JSON configuration files, for example, `NPM`,
-`bower`, `Node.js`, and OS-level library dependencies.
+`bower`, `Node.js`, as well as OS-level library dependencies.
 
