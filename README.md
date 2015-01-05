@@ -19,10 +19,10 @@ Ruby-based Sinatra framework.  MongoDB and Mongoose provide a database backend
 for web services-related persistence that can be more straightforward,
 depending on app server requirements, than setting up SQL- and
 Ruby/Sequel-based backends.  AngularJs provides frontend web services, while
-Node.js provides backend.
+Node.js provides backend services.
 
 AppServer is a skeleton app that provides an example of a MEAN implementation,
-but will require modification, as well as domain-related extensions.  AppServer
+but requires modification, as well as domain-related extensions.  AppServer
 is not a zero-modification, extensible application.
 
 Angular/Bootstrap Design
@@ -39,19 +39,22 @@ configured, the custom toolbar supports heterogeneous content, such as the
 right-justified real-time UTC time display.  Lastly, AppServer employs
 [Greg Franko's SelectBoxIt](https://github.com/gfranko/jquery.selectBoxIt.js)
 for the demo content within the tabs, but, of course, each tab's contents should
-be replaced based on to the requirements of each web application.
+be replaced based on the requirements of each web application.
 
-Each div-based tabbed panel is defined within a form.  The forms can be
-configured for standard HTML processing by setting the button type to "submit",
-or remain as is with a button type of "button".  In the latter case, the form
-processing is handled through an on-click JavaScript event.
+Each div-based tabbed panel is defined within a form.  If no traditional form
+processing is anticipated, the forms could be replaced by, say, divs, with
+corresponding changes to CSS classes/instances.  In the current arrangement, the
+forms can be configured for standard HTML processing by setting the button type
+to "submit", or can remain as is with a button type of "button".  In the latter
+case, the "form processing"  must be handled through an on-click JavaScript
+event.
 
 Cascading Style Sheets
 ----------------------
 
-The rightmost tab, an "Options" tab, includes a select box for style.  AppServer
-includes eight Cascading Style Sheets (CSSes) for various color styles.  The
-"Preview" button loads the selected style sheet.
+The rightmost tab, an "Options" tab, includes a select box for page style.
+AppServer includes eight Cascading Style Sheets (CSSes) for various color
+styles.  The "Preview" button loads the selected style sheet.
 
 CSS styles are handled by setting one primary style sheet from multiple style
 sheets, the remaining style sheets set as alternates.
@@ -75,7 +78,8 @@ Colors are implemented using a comment-and-RGB-value scheme, for example:
       ...
     }
 
-AppServer includes two 'sub-colors.*' scripts in 'binsh' that search for and
+AppServer includes two "sub-colors.*" scripts in 'binsh' that search for and
 replace each occurrence of the "pseudo color variable following comment" with
 the RGB value specified in the pseudo variable definitions.  This scheme can be
 replaced by CSS variables once they are widely supported.
+
