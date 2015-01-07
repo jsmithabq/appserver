@@ -8,7 +8,7 @@ db.once('open', function() {
     role: String,
     style: String
   });
-  var User = db.model('User', userSchema);
+  var User = db.model('user', userSchema);
   User.find(function(err, users) {
     if (err) {
      console.log(err);

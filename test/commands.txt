@@ -1,0 +1,27 @@
+
+npm install -g bower
+npm install -g mongodb
+
+npm link mongodb
+
+
+jsmith@sage:~/X/LocalGit/appserver/test$ mongo ds029811.mongolab.com:29811/appserver -u appservertest -p appservertest
+MongoDB shell version: 2.6.5
+connecting to: ds029811.mongolab.com:29811/appserver
+rs-ds029811:PRIMARY> use appserver
+switched to db appserver
+rs-ds029811:PRIMARY> db
+appserver
+rs-ds029811:PRIMARY> db.createCollection('user', { strict: true, capped: true, size: 50000, max: 10 })
+{ "ok" : 1 }
+rs-ds029811:PRIMARY> db.createCollection('australia', { strict: true, capped: true, size: 50000, max: 10 })
+{ "ok" : 1 }
+rs-ds029811:PRIMARY> db.createCollection('africa', { strict: true, capped: true, size: 50000, max: 60 })
+{ "ok" : 1 }
+rs-ds029811:PRIMARY> 
+
+
+
+mongoimport -h ds029811.mongolab.com:29811 -d appserver -c user -u appservertest -p appservertest --file user.data --type csv --headerline
+mongoimport -h ds029811.mongolab.com:29811 -d appserver -c africa -u appservertest -p appservertest --file africa.data --type csv --headerline
+mongoimport -h ds029811.mongolab.com:29811 -d appserver -c australia -u appservertest -p appservertest --file australia.data --type csv --headerline
