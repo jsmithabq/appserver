@@ -6,9 +6,13 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider',
         templateUrl: 'views/home.html',
         controller: 'MainController'
       })
-      .when('/plans', {
-        templateUrl: 'views/plan.html',
-        controller: 'PlanController'
+      .when('/africa', {
+        templateUrl: 'views/africa.html',
+        controller: 'AfricaController'
+      })
+      .when('/australia', {
+        templateUrl: 'views/australia.html',
+        controller: 'AustraliaController'
       })
       .when('/users', {
         templateUrl: 'views/user.html',

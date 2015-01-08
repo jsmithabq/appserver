@@ -1,5 +1,6 @@
 
-var Plan = require('./models/plan');
+var Africa = require('./models/africa');
+var Australia = require('./models/australia');
 var User = require('./models/user');
 var Profile = require('./models/profile');
 
@@ -19,11 +20,18 @@ module.exports = function(app) {
       res.json(profiles);
     });
   });
-  app.get('/api/plans', function(req, res) {
-    User.find(function(err, plans) {
+  app.get('/api/africa', function(req, res) {
+    Africa.find(function(err, africa) {
       if (err)
         res.send(err);
-      res.json(plans);
+      res.json(africa);
+    });
+  });
+  app.get('/api/australia', function(req, res) {
+    Australia.find(function(err, australia) {
+      if (err)
+        res.send(err);
+      res.json(australia);
     });
   });
 

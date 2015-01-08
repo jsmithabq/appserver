@@ -1,4 +1,5 @@
 
-angular.module('appserver', ['ui.bootstrap', 'ngRoute', 'appRoutes', 'MainCtrl', 'PlanCtrl',
-  'UserCtrl', 'ProfileCtrl', 'PlanService', 'UserService', 'ProfileService']);
+angular.module('appserver', ['ui.bootstrap', 'ngRoute', 'appRoutes',
+  'MainCtrl', 'AfricaCtrl', 'AustraliaCtrl', 'UserCtrl', 'ProfileCtrl',
+  'AfricaService', 'AustraliaService', 'UserService', 'ProfileService']);
 
