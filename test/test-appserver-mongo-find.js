@@ -1,7 +1,8 @@
 
 var mongo = require('mongodb');
 var mc = mongo.MongoClient;
-mc.connect('mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/appserver', function(err, db) {
+mc.connect('mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/appserver',
+function(err, db) {
   if (err)
     console.log(err);
   db.collection('user', function(err, collection) {
