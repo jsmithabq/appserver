@@ -8,31 +8,37 @@ module.exports = function(app) {
   // API routes:
   app.get('/api/users', function(req, res) {
     User.find(function(err, users) {
-      if (err)
-        res.send(err);
+      if (err) { res.send(err); }
       res.json(users);
     });
   });
   app.get('/api/profiles', function(req, res) {
     Profile.find(function(err, profiles) {
-      if (err)
-        res.send(err);
+      if (err) { res.send(err); }
       res.json(profiles);
     });
   });
   app.get('/api/africa', function(req, res) {
     Africa.find(function(err, africa) {
-      if (err)
-        res.send(err);
+      if (err) { res.send(err); }
       res.json(africa);
     });
   });
   app.get('/api/australia', function(req, res) {
     Australia.find(function(err, australia) {
-      if (err)
-        res.send(err);
+      if (err) { res.send(err); }
       res.json(australia);
     });
+  });
+  app.get('/api/*', function(req, res) {
+    res.json(
+      {
+        'error': {
+          'code': 404,
+          'message': 'Resource not found.'
+        }
+      }
+    );
   });
 
   // Route to handle creating goes here (app.post)...
