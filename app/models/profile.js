@@ -1,8 +1,14 @@
 
 var mongoose = require('mongoose');
 
-module.exports = mongoose.model('Profile', {
-  style: {type : String, default: ''},
-  bkg_bg: {type : String, default: ''},
-  gen_by: {type : String, default: ''}
-});
+var profileSchema = new mongoose.Schema(
+  {
+    style: {type : String, default: ''},
+    bkg_bg: {type : String, default: ''},
+    gen_bg: {type : String, default: ''}
+  }, 
+  {collection: 'profile'}
+);
+var Profile = mongoose.model('Profile', profileSchema);
+
+module.exports = Profile;

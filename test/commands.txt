@@ -23,5 +23,6 @@ rs-ds029811:PRIMARY>
 
 
 mongoimport -h ds029811.mongolab.com:29811 -d appserver -c user -u appservertest -p appservertest --file user.data --type csv --headerline
+mongoimport -h ds029811.mongolab.com:29811 -d appserver -c profile -u appservertest -p appservertest --file profile.data --type csv --headerline
 mongoimport -h ds029811.mongolab.com:29811 -d appserver -c africa -u appservertest -p appservertest --file africa.data --type csv --headerline
 mongoimport -h ds029811.mongolab.com:29811 -d appserver -c australia -u appservertest -p appservertest --file australia.data --type csv --headerline

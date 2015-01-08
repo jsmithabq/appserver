@@ -5,6 +5,6 @@ var australiaSchema = new mongoose.Schema(
   {state: String, capital: String, population: Number, area: Number}, 
   {collection: 'australia'}
 );
-var Australia = db.model('Australia', australiaSchema);
+var Australia = mongoose.model('Australia', australiaSchema);
 
 module.exports = Australia;
