@@ -41,12 +41,15 @@ module.exports = function(app) {
     );
   });
 
-  // Route to handle creating goes here (app.post)...
-  // Route to handle delete goes here (app.delete)...
 
-  // Web front-end routes:
+  // Web frontend routes:
   app.get('*', function(req, res) {
-    res.sendfile('./public/index.html'); // load 'public/index.html'
+    /*res.sendfile('./public/index.html');*/ // load 'public/index.html'
+    res.sendFile('./public/index.html', {}, function (err) {
+      if (err) {
+        console.log(err);
+        res.status(err.status).end();
+      }
+    });
   });
 };
-

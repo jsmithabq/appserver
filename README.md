@@ -105,4 +105,3 @@ Note that 'package.json' and 'bower.json' don't constitute the entire set of
 required dependencies, because certain NPM-based installations are typically
 global, thus, not included in these JSON configuration files, for example, `NPM`,
 `bower`, `Node.js`, as well as OS-level library dependencies.
-
