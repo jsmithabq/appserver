@@ -19,6 +19,7 @@
   <script src="js/libs/jquery.selectBoxIt.min.js"></script>
   <script src="js/controllers/DropdownCtrl.js"></script>
   <script src="js/controllers/MainCtrl.js"></script>
+  <script src="js/controllers/TabCtrl.js"></script>
   <script src="js/controllers/AfricaCtrl.js"></script>
   <script src="js/controllers/AustraliaCtrl.js"></script>
   <script src="js/controllers/UserCtrl.js"></script>
@@ -100,41 +101,41 @@
     </div> <!-- toolbar -->
   </div> <!-- mast -->
   <hr class="invisible-rule">
-  <div ng-controller="MainController" class="main-content">
+  <div ng-controller="MainController as main" class="main-content">
     <ul class="tabp panel-content" ng-init="tab = 1">
       <li class="tabp" ng-class="{active:tab===1}"><a href ng-click="tab = 1">Tab 1</a></li>
       <li class="tabp" ng-class="{active:tab===2}"><a href ng-click="tab = 2">Tab 2</a></li>
       <li class="tabp" ng-class="{active:tab===3}"><a href ng-click="tab = 3">Options</a></li>
       <br><br>
-      <div ng-show="tab === 1">
+      <div ng-controller="TabController as tab1" ng-show="tab === 1">
         <h4>Tab 1</h4>
-        <form ng-submit="submit_tab1()" class="form-horizontal main-form" role="form">
+        <form ng-submit="tab1.tab1_submit()" class="form-horizontal main-form" role="form">
           <table>
             <tr class="form-group">
               <td>
-                <label class="control-label" for="tab1.distributor">Distributor:</label>
+                <label class="control-label" for="tab1.tab1.distributor">Distributor:</label>
               </td>
               <td>
-                <input ng-model="tab1.distributor" type="text" class="form-control input-text-left"
-                  id="tab1.distributor" name="tab1.distributor" size="10">
-              </td>
-            </tr>
-            <tr class="form-group">
-              <td>
-                <label class="control-label" for="tab1.region">Region:</label>
-              </td>
-              <td>
-                <input ng-model="tab1.region" type="text" class="form-control input-text-left"
-                  id="tab1.region" name="tab1.region" size="10">
+                <input ng-model="tab1.tab1.distributor" type="text" class="form-control input-text-left"
+                  id="tab1.tab1.distributor" name="tab1.tab1.distributor" size="10">
               </td>
             </tr>
             <tr class="form-group">
               <td>
-                <label class="control-label" for="tab1.fruit">{{tab1.fruit.label}}</label>
+                <label class="control-label" for="tab1.tab1.region">Region:</label>
               </td>
               <td>
-                <select ng-model="tab1.fruit.value" ng-options="v for v in tab1.fruit.values"
-                  class="form-control options-menu" id="tab1.fruit" name="{{tab1.fruit.name}}">
+                <input ng-model="tab1.tab1.region" type="text" class="form-control input-text-left"
+                  id="tab1.tab1.region" name="tab1.tab1.region" size="10">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="tab1.tab1.fruit">{{tab1.tab1.fruit.label}}</label>
+              </td>
+              <td>
+                <select ng-model="tab1.tab1.fruit.value" ng-options="v for v in tab1.tab1.fruit.values"
+                  class="form-control options-menu" id="tab1.tab1.fruit" name="{{tab1.tab1.fruit.name}}">
                 </select>
               </td>
             </tr>
@@ -144,41 +145,41 @@
             <tr class="form-group">
               <td></td>
               <td>
-                <input class="btn btn-default" id="tab1.submit" type="submit" value="Submit">
+                <input class="btn btn-default" id="tab1.tab1.submit" type="submit" value="Submit">
               </td>
             </tr>
           </table>
         </form>
       </div>
-      <div ng-show="tab === 2">
+      <div ng-controller="TabController as tab2" ng-show="tab === 2">
         <h4>Tab 2</h4>
-        <form ng-submit="submit_tab2()" class="form-horizontal main-form">
+        <form ng-submit="tab2.tab2_submit()" class="form-horizontal main-form">
           <table>
             <tr class="form-group">
               <td>
-                <label class="control-label" for="tab2.country">Country:</label>
+                <label class="control-label" for="tab2.tab2.country">Country:</label>
               </td>
               <td>
-                <input ng-model="tab2.country" type="text" class="form-control input-text-left"
-                  id="tab2.country" name="tab2.country" size="10">
-              </td>
-            </tr>
-            <tr class="form-group">
-              <td>
-                <label class="control-label" for="tab2.irrigation">Irrigation:</label>
-              </td>
-              <td>
-                <input ng-model="tab2.irrigation" type="text" class="form-control input-text-left"
-                  id="tab2.irrigation" name="tab2.irrigation" size="10">
+                <input ng-model="tab2.tab2.country" type="text" class="form-control input-text-left"
+                  id="tab2.tab2.country" name="tab2.tab2.country" size="10">
               </td>
             </tr>
             <tr class="form-group">
               <td>
-                <label class="control-label" for="tab2.nuts">{{tab2.nuts.label}}</label>
+                <label class="control-label" for="tab2.tab2.irrigation">Irrigation:</label>
               </td>
               <td>
-                <select ng-model="tab2.nuts.value" ng-options="v for v in tab2.nuts.values"
-                  class="form-control options-menu" id="tab2.nuts" name="{{tab2.nuts.name}}">
+                <input ng-model="tab2.tab2.irrigation" type="text" class="form-control input-text-left"
+                  id="tab2.tab2.irrigation" name="tab2.tab2.irrigation" size="10">
+              </td>
+            </tr>
+            <tr class="form-group">
+              <td>
+                <label class="control-label" for="tab2.tab2.nuts">{{tab2.tab2.nuts.label}}</label>
+              </td>
+              <td>
+                <select ng-model="tab2.tab2.nuts.value" ng-options="v for v in tab2.tab2.nuts.values"
+                  class="form-control options-menu" id="tab2.tab2.nuts" name="{{tab2.tab2.nuts.name}}">
                 </select>
               </td>
             </tr>
@@ -188,13 +189,13 @@
             <tr class="form-group">
               <td></td>
               <td>
-                <input class="btn btn-default" id="tab2.submit" type="submit" value="Submit">
+                <input class="btn btn-default" id="tab2.tab2.submit" type="submit" value="Submit">
               </td>
             </tr>
           </table>
         </form>
       </div>
-      <div ng-show="tab === 3">
+      <div ng-controller="TabController as tab3" ng-show="tab === 3">
         <h4>Session Status</h4>
         <table>
           <tr class="form-group">

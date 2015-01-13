@@ -1,4 +1,5 @@
 
 angular.module('AustraliaCtrl', []).controller('AustraliaController', function ($scope) {
-  $scope.tagline = 'Search Australia...';
+  $scope.placeholder = 'Placeholder...';
+  var self = this;
 });

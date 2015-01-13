@@ -1,5 +1,6 @@
 
 angular.module('ProfileCtrl', []).controller('ProfileController', function ($scope) {
-  $scope.tagline = 'Find available user profiles...';
+  $scope.placeholder = 'Placeholder...';
+  var self = this;
 });
 
