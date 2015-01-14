@@ -1,4 +1,4 @@
-
+/*
 var mongo = require('mongodb');
 var mc = mongo.MongoClient;
 var countries = [];
@@ -25,7 +25,7 @@ function(err, db) {
     });
   });
 });
-
+*/
 angular.module('AfricaCtrl', []).controller('AfricaController', function ($scope) {
   $scope.placeholder = 'Placeholder...';
   var self = this;
