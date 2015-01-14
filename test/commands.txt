@@ -29,3 +29,14 @@ mongoimport -h ds029811.mongolab.com:29811 -d appserver -c australia -u appserve
 
 mongo ds029811.mongolab.com:29811/appserver -u appservertest -p appservertest
 
+db.appserver.find( {}, {country: 1, _id: 0}, function(err, cursor) {
+  if (err) return console.log('error with find:', err);
+  cursor.each(function(err,c) {
+    console.log(c);
+  });
+});
+
+var countries = db.africa.find( {}, {country: 1, _id: 0}).toArray()
+
+printjson(countries)
+
