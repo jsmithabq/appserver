@@ -5,7 +5,12 @@ mc.connect('mongodb://appservertest:appservertest@ds029811.mongolab.com:29811/ap
 function(err, db) {
   if (err)
     console.log(err);
+  /*
+  // JavaScript alternative to Mongo shell, e.g.:
   var countries = db.africa.find( {}, {country: 1, _id: 0}).toArray();
+  printjson(countries);
+  */
+  var countries = [];
   db.collection('africa', function(err, collection) {
     if (err)
       return console.log('error opening africa collection, err = ', err);
@@ -13,7 +18,7 @@ function(err, db) {
       if (err)
         return console.log('error initiating find on africa, err = ', err);
       cursor.each(function(err, country) {
-        if (err || ! country) {
+        if (err || !country) {
           if (err)
             console.log('error walking data, err = ', err);
           db.close();
@@ -25,6 +30,4 @@ function(err, db) {
     });
     console.log(countries);
   });
-  */
-  printjson(countries);
 });

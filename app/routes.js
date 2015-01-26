@@ -24,6 +24,12 @@ module.exports = function(app) {
       res.json(africa);
     });
   });
+  app.get('/api/africa/country', function(req, res) {
+    Africa.find({}, '-_id country', function(err, africa) {
+      if (err) { res.send(err); }
+      res.json(africa);
+    });
+  });
   app.get('/api/australia', function(req, res) {
     Australia.find(function(err, australia) {
       if (err) { res.send(err); }

@@ -5,5 +5,9 @@ angular.module('AfricaService',  []).factory('Africa', ['$http', function($http)
     get : function() {
       return $http.get('/api/africa');
     },
+    // GET all countries in Africa, countries view only:
+    get : function() {
+      return $http.get('/api/africa/countries');
+    },
   }
 }]);

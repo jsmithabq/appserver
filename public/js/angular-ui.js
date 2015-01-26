@@ -1,5 +1,6 @@
 
-angular.module('appserver', ['ui.bootstrap']);
+/*angular.module('appserver', ['ui.bootstrap']);*/
+/*
 angular.module('appserver').controller('DropdownCtrl', function ($scope, $log) {
   $scope.items = [ // currently, not used
     'One',
@@ -22,3 +23,4 @@ angular.module('appserver').controller('DropdownCtrl', function ($scope, $log) {
     $scope.status.isopen = !$scope.status.isopen;
   };
 });
+*/

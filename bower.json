@@ -9,6 +9,7 @@
     "animate.css": "latest",
     "angular": "latest",
     "angular-route": "latest",
+    "angular-ui-router": "latest",
     "jquery-ui": "latest",
     "jquery-selectboxit": "latest"
   },

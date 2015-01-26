@@ -2,9 +2,9 @@
 angular.module('DropdownCtrl', []).controller('DropdownController', function ($scope, $log) {
   var self = this;
   $scope.items = [ // currently, not used
-    'One',
-    'Two',
-    'Three'
+    'One...',
+    'Two...',
+    'Three...'
   ];
 
   $scope.status = {
