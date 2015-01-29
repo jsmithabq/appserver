@@ -51,7 +51,7 @@ module.exports = function(app) {
   // Web frontend routes:
   app.get('*', function(req, res) {
     /*res.sendfile('./public/index.html');*/ // load 'public/index.html'
-    res.sendFile('index.html', {root: __dirname + '/../public/'}, function (err) {
+    res.sendFile('index.html', {root: __dirname + '/' + '../public/'}, function (err) {
       if (err) {
         console.log(err);
         res.status(err.status).end();
