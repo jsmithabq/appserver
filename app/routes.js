@@ -36,6 +36,12 @@ module.exports = function(app) {
       res.json(australia);
     });
   });
+  app.get('/api/australia/state', function(req, res) {
+    Australia.find({}, '-_id state', function(err, australia) {
+      if (err) { res.send(err); }
+      res.json(australia);
+    });
+  });
   app.get('/api/*', function(req, res) {
     res.json(
       {

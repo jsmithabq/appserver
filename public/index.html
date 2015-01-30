@@ -105,14 +105,15 @@
   <hr class="invisible-rule">
   <div ng-controller="MainController as main" class="main-content">
     <ul class="tabp panel-content" ng-init="tab = 1">
-      <li class="tabp" ng-class="{active:tab===1}"><a href ng-click="tab = 1">Tab 1</a></li>
-      <li class="tabp" ng-class="{active:tab===2}"><a href ng-click="tab = 2">Tab 2</a></li>
+      <li class="tabp" ng-class="{active:tab===1}"><a href ng-click="tab = 1">Africa Tab</a></li>
+      <li class="tabp" ng-class="{active:tab===2}"><a href ng-click="tab = 2">Australia Tab</a></li>
       <li class="tabp" ng-class="{active:tab===3}"><a href ng-click="tab = 3">Options</a></li>
       <br><br>
       <div ng-controller="TabController as tab1" ng-show="tab === 1">
-        <h4>Tab 1</h4>
+        <h4>Countries</h4>
         <form ng-submit="tab1.tab1_submit()" class="form-horizontal main-form" role="form">
           <table>
+            <!--
             <tr class="form-group">
               <td>
                 <label class="control-label" for="tab1.tab1.distributor">Distributor:</label>
@@ -131,12 +132,13 @@
                   id="tab1.tab1.region" name="tab1.tab1.region" size="10">
               </td>
             </tr>
+            -->
             <tr class="form-group">
               <td>
                 <label class="control-label" for="tab1.tab1.countries">{{tab1.tab1.countriesOption.label}}</label>
               </td>
               <td>
-                <select ng-model="tab1.tab1.countriesOption.value" ng-option="c for c in tab1.tab1.countries"
+                <select ng-model="tab1.tab1.country" ng-options="c for c in tab1.tab1.countries"
                     class="form-control options-menu" id="tab1.tab1.countries" name="{{tab1.tab1.countriesOption.name}}">
                 </select>
               </td>
@@ -154,9 +156,10 @@
         </form>
       </div>
       <div ng-controller="TabController as tab2" ng-show="tab === 2">
-        <h4>Tab 2</h4>
+        <h4>States</h4>
         <form ng-submit="tab2.tab2_submit()" class="form-horizontal main-form">
           <table>
+            <!--
             <tr class="form-group">
               <td>
                 <label class="control-label" for="tab2.tab2.country">Country:</label>
@@ -175,13 +178,14 @@
                   id="tab2.tab2.irrigation" name="tab2.tab2.irrigation" size="10">
               </td>
             </tr>
+            -->
             <tr class="form-group">
               <td>
-                <label class="control-label" for="tab2.tab2.nuts">{{tab2.tab2.nuts.label}}</label>
+                <label class="control-label" for="tab2.tab2.states">{{tab2.tab2.statesOption.label}}</label>
               </td>
               <td>
-                <select ng-model="tab2.tab2.nuts.value" ng-options="v for v in tab2.tab2.nuts.values"
-                  class="form-control options-menu" id="tab2.tab2.nuts" name="{{tab2.tab2.nuts.name}}">
+                <select ng-model="tab2.tab2.state" ng-options="s for s in tab2.tab2.states"
+                  class="form-control options-menu" id="tab2.tab2.states" name="{{tab2.tab2.states.name}}">
                 </select>
               </td>
             </tr>
