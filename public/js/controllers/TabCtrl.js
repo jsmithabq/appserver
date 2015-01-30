@@ -43,7 +43,7 @@ angular.module('TabCtrl', [])
     self.tab1.countries = countries;
     self.tab1.country = self.tab1.countries[0];
   });
-  self.tab1_submit = function() {
+  self.tab1Submit = function() {
     console.log('User clicked submit for ', self.tab1);
     console.log('User clicked submit with selection', self.tab1.country);
   };
@@ -59,7 +59,7 @@ angular.module('TabCtrl', [])
     self.tab2.states = states;
     self.tab2.state = self.tab2.states[0];
   });
-  self.tab2_submit = function() {
+  self.tab2Submit = function() {
     console.log('User clicked submit for ', self.tab2);
     console.log('User clicked submit with selection', self.tab2.state);
   };

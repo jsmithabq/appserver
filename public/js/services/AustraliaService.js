@@ -5,5 +5,9 @@ angular.module('AustraliaService',  []).factory('Australia', ['$http', function(
     get : function() {
       return $http.get('/api/australia');
     },
+    // GET all states in Australia, state projection only:
+    get : function() {
+      return $http.get('/api/australia/state');
+    },
   }
 }]);
