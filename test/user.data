@@ -1,4 +1,4 @@
-name,role,style
-Dick,Planner,Adobe
-Jane,Pilot,Adobe
-Tom,Pilot,Adobe
+userid,password,name,role,style
+dick,Password1,Dick,Planner,Adobe
+jane,Password1,Jane,Pilot,Adobe
+tom,Password1,Tom,Pilot,Adobe
