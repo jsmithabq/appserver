@@ -22,5 +22,6 @@ angular.module('AfricaCtrl', []).controller('AfricaController', function ($scope
   self.africa_submit = function() {
     console.log('User clicked submit for ', self.africa);
     console.log('User clicked submit with selection', self.africa.country.value);
+    //alert('User clicked submit with selection ' + self.africa.country.value)
   };
 });

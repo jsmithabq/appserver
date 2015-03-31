@@ -46,6 +46,7 @@ angular.module('TabCtrl', [])
   self.tab1Submit = function() {
     console.log('User clicked submit for ', self.tab1);
     console.log('User clicked submit with selection', self.tab1.country);
+    alert('User clicked submit with selection ' + self.tab1.country)
   };
   self.tab2 = {};
   //self.tab2.country = 'Africa';
@@ -62,7 +63,64 @@ angular.module('TabCtrl', [])
   self.tab2Submit = function() {
     console.log('User clicked submit for ', self.tab2);
     console.log('User clicked submit with selection', self.tab2.state);
+    alert('User clicked submit with selection ' + self.tab2.state)
   };
   self.tab3 = {};
+  self.tab3.stylesOption = {
+    'type': 'select',
+    'label': 'Style:',
+    'name': 'style'
+  };
+  self.tab3.styles = [
+    {value: 'adobe', text: 'Adobe'},
+    {value: 'artic', text: 'Artic'},
+    {value: 'atlantic', text: 'Atlantic'},
+    {value: 'c4cr', text: 'C4CR'},
+    {value: 'creamsicle', text: 'Creamsicle'},
+    {value: 'desert', text: 'Desert'},
+    {value: 'foam', text: 'Foam'},
+    {value: 'overcast', text: 'Overcast'},
+    {value: 'pacific', text: 'Pacific'}
+  ];
+  self.tab3.style = self.tab3.styles[0].value;
+  self.changeStyle = function() {
+    //var styleBox = document.getElementById("style");
+    //var theme = String(styleBox.options[styleBox.selectedIndex].value);
+    var styleBox = document.getElementById("tab3.tab3.styles");
+    var theme = styleBox.options[styleBox.selectedIndex];
+    var fileName = "style-" + theme.value + ".css";
+    console.log("New style is: " + fileName);
+    var head = document.head || document.getElementsByTagName("head")[0];
+    var i, linkster;
+    for (i = 0, linkster = document.getElementsByTagName("link"); i < linkster.length ; i++ ) {
+      if ((linkster[i].rel.indexOf( "stylesheet" ) != -1) && linkster[i].id) {
+        linkster[i].disabled = true;
+        linkster[i].setAttribute("rel", "alternate stylesheet");
+        if (linkster[i].id == "style-" + theme) {
+          linkster[i].disabled = false;
+          linkster[i].setAttribute("rel", "stylesheet");
+        }
+      }
+    }
+  };
+  self.tab3Submit = function() {
+    console.log('User clicked submit for ', self.tab3);
+    console.log('User clicked submit with selection', self.tab3.style);
+    var pos = self.tab3.styles.map(function(e) { return e.value; })
+      .indexOf(self.tab3.style);
+    alert('User clicked submit with selection ' + self.tab3.styles[pos].text);
+    var name = String(document.getElementsByName("name")[0].value);
+    console.log("New name is: " + name);
+    var currentPassword = String(document.getElementsByName("currentpassword")[0].value);
+    console.log("New name is: " + currentPassword);
+    var newPassword = String(document.getElementsByName("newpassword")[0].value);
+    console.log("New password #1 is: " + newPassword);
+    var newPassword2 = String(document.getElementsByName("newpassword2")[0].value);
+    console.log("New password #2 is: " + newPassword2);
+    var styleBox = document.getElementById("tab3.tab3.styles");
+    var theme = styleBox.options[styleBox.selectedIndex];
+    console.log("New theme name is: " + theme.text);
+    console.log("New theme value is: " + theme.value);
+  };
 });
 
