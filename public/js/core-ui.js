@@ -21,13 +21,26 @@ function init() {
 window.onload = init;
 
 $(function() {
-  $("select#tab1.tab1.countries").selectBoxIt(
+  $("select#tab1-tab1-countries").selectBoxIt(
+    /*{ theme: "bootstrap", }*/
+    /*populate: function() {
+      var deferred = $.Deferred(),
+        countries = [];
+      $.ajax({
+        url: 'api/africa/country'
+      }).done(function(data) {
+        for (var i = 0; i < data.length; i++) {
+          countries.push(data[i].country);
+        }
+        deferred.resolve(countries);
+      });
+      return deferred;
+    }*/
+  );
+  $("select#tab2tab2-states").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
-  $("select#tab2.tab2.states").selectBoxIt(
-    /*{ theme: "bootstrap", }*/
-  );
-  $("select#tab3.tab3.styles").selectBoxIt(
+  $("select#tab3-tab3-styles").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
 });

@@ -25,3 +25,13 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider',
     $locationProvider.html5Mode(true);
 }]);
 
+/*
+$routeProvider.when('/profile', {
+    templateUrl: 'profile',
+    controller: AController,
+    resolve: {
+         data: function ($q, theData) {
+             return theData;
+         }
+    }
+});*/

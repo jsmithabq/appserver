@@ -8,11 +8,12 @@ angular.module('AfricaCtrl', []).controller('AfricaController', function ($scope
     "population": 30480793,
     "area": 919595
   */
+  /*
   self.africa = {};
   self.africa.country = {
     'type': 'select', 
     'label': 'Country:',
-    'name': 'country',
+    'name': 'tab1-country',
     'value': 'Algeria', 
     'values': countries
   };
@@ -24,4 +25,5 @@ angular.module('AfricaCtrl', []).controller('AfricaController', function ($scope
     console.log('User clicked submit with selection', self.africa.country.value);
     //alert('User clicked submit with selection ' + self.africa.country.value)
   };
+  */
 });

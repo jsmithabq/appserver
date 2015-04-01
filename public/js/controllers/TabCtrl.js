@@ -1,32 +1,32 @@
 
 angular.module('TabCtrl', [])
 .factory('TabControllerRetrieveCountries', function($q, $http) {
-  var deferred = $q.defer();
+  var deferredCountries = $q.defer();
   var countries = [];
   $http.get('api/africa/country').success (function (data) {
     for (var i = 0; i < data.length; i++) {
       countries.push(data[i].country);
     }
     //console.log('Countries: ', countries);
-    deferred.resolve(countries);
+    deferredCountries.resolve(countries);
   }).error(function () {
     alert('Unexpected error retrieving countries.');
   });
-  return deferred.promise;
+  return deferredCountries.promise;
 })
 .factory('TabControllerRetrieveStates', function($q, $http) {
-  var deferred = $q.defer();
+  var deferredStates = $q.defer();
   var states = [];
   $http.get('api/australia/state').success (function (data) {
     for (var i = 0; i < data.length; i++) {
       states.push(data[i].state);
     }
     //console.log('States: ', states);
-    deferred.resolve(states);
+    deferredStates.resolve(states);
   }).error(function () {
     alert('Unexpected error retrieving states.');
   });
-  return deferred.promise;
+  return deferredStates.promise;
 })
 .controller('TabController', function ($scope, TabControllerRetrieveCountries, TabControllerRetrieveStates) {
   $scope.placeholder = 'Placeholder...';
@@ -37,11 +37,12 @@ angular.module('TabCtrl', [])
   self.tab1.countriesOption = {
     'type': 'select',
     'label': 'Countries:',
-    'name': 'country'
+    'name': 'tab1-country'
   };
   TabControllerRetrieveCountries.then(function(countries) {
     self.tab1.countries = countries;
     self.tab1.country = self.tab1.countries[0];
+    console.log('Default country: ', self.tab1.country);
   });
   self.tab1Submit = function() {
     console.log('User clicked submit for ', self.tab1);
@@ -54,11 +55,12 @@ angular.module('TabCtrl', [])
   self.tab2.statesOption = {
     'type': 'select',
     'label': 'States:',
-    'name': 'state'
+    'name': 'tab2-state'
   };
   TabControllerRetrieveStates.then(function(states) {
     self.tab2.states = states;
     self.tab2.state = self.tab2.states[0];
+    console.log('Default state: ', self.tab2.state);
   });
   self.tab2Submit = function() {
     console.log('User clicked submit for ', self.tab2);
@@ -69,7 +71,7 @@ angular.module('TabCtrl', [])
   self.tab3.stylesOption = {
     'type': 'select',
     'label': 'Style:',
-    'name': 'style'
+    'name': 'tab3-style'
   };
   self.tab3.styles = [
     {value: 'adobe', text: 'Adobe'},
@@ -86,7 +88,7 @@ angular.module('TabCtrl', [])
   self.changeStyle = function() {
     //var styleBox = document.getElementById("style");
     //var theme = String(styleBox.options[styleBox.selectedIndex].value);
-    var styleBox = document.getElementById("tab3.tab3.styles");
+    var styleBox = document.getElementById("tab3-tab3-styles");
     var theme = styleBox.options[styleBox.selectedIndex];
     var fileName = "style-" + theme.value + ".css";
     console.log("New style is: " + fileName);
@@ -109,15 +111,15 @@ angular.module('TabCtrl', [])
     var pos = self.tab3.styles.map(function(e) { return e.value; })
       .indexOf(self.tab3.style);
     alert('User clicked submit with selection ' + self.tab3.styles[pos].text);
-    var name = String(document.getElementsByName("name")[0].value);
+    var name = String(document.getElementsByName("profile-name")[0].value);
     console.log("New name is: " + name);
-    var currentPassword = String(document.getElementsByName("currentpassword")[0].value);
+    var currentPassword = String(document.getElementsByName("profile-currentpassword")[0].value);
     console.log("New name is: " + currentPassword);
-    var newPassword = String(document.getElementsByName("newpassword")[0].value);
+    var newPassword = String(document.getElementsByName("profile-newpassword")[0].value);
     console.log("New password #1 is: " + newPassword);
-    var newPassword2 = String(document.getElementsByName("newpassword2")[0].value);
+    var newPassword2 = String(document.getElementsByName("profile-newpassword2")[0].value);
     console.log("New password #2 is: " + newPassword2);
-    var styleBox = document.getElementById("tab3.tab3.styles");
+    var styleBox = document.getElementById("tab3-tab3-styles");
     var theme = styleBox.options[styleBox.selectedIndex];
     console.log("New theme name is: " + theme.text);
     console.log("New theme value is: " + theme.value);
