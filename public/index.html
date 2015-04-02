@@ -55,7 +55,7 @@
   <link id="style-pacific" rel="alternate stylesheet" type="text/css" href="css/style-pacific.css" />
   <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script> -->
 </head>
-<body margin-top=3 ng-app="appserver" ng-controller="MainController">
+<body "margin-top=3 ng-app="appserver" ng-controller="MainController">
   <div class="div-nav">
 <!--
   <div id="header">
@@ -139,8 +139,8 @@
                 <label class="control-label" for="{{tab1.tab1.countriesOption.name}}">{{tab1.tab1.countriesOption.label}}</label>
               </td>
               <td>
-                <select ng-model="tab1.tab1.country" ng-options="c for c in tab1.tab1.countries"
-                    class="form-control options-menu" id="tab1-tab1-countries" name="{{tab1.tab1.countriesOption.name}}">
+                <select ng-model="tab1.tab1.country" ng-if="tab1.tab1.isReady" ng-options="c for c in tab1.tab1.countries"
+                  class="form-control options-menu" id="tab1-tab1-countries" name="{{tab1.tab1.countriesOption.name}}">
                 </select>
               </td>
             </tr>
@@ -185,7 +185,7 @@
                 <label class="control-label" for="{{tab2.tab2.statesOption.name}}">{{tab2.tab2.statesOption.label}}</label>
               </td>
               <td>
-                <select ng-model="tab2.tab2.state" ng-options="s for s in tab2.tab2.states"
+                <select ng-model="tab2.tab2.state" ng-if="tab2.tab2.isReady" ng-options="s for s in tab2.tab2.states"
                   class="form-control options-menu" id="tab2-tab2-states" name="{{tab2.tab2.statesOption.name}}">
                 </select>
               </td>

@@ -16,11 +16,18 @@ function UpdateClock() {
 
 function init() {
   updateClock();
+  initSelectBoxIt();
 }
 
 window.onload = init;
+//window.onpageshow = refreshSelectBoxIt();
 
-$(function() {
+//$(function() {
+function initSelectBoxIt() {
+  $("select").selectBoxIt();
+}
+
+function initSelectBoxItOld() {
   $("select#tab1-tab1-countries").selectBoxIt(
     /*{ theme: "bootstrap", }*/
     /*populate: function() {
@@ -37,10 +44,18 @@ $(function() {
       return deferred;
     }*/
   );
-  $("select#tab2tab2-states").selectBoxIt(
+  $("select#tab2-tab2-states").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
   $("select#tab3-tab3-styles").selectBoxIt(
     /*{ theme: "bootstrap", }*/
   );
-});
+//});
+}
+
+function refreshSelectBoxIt() {
+  //$("select").selectBoxIt('refresh');
+  $("select#tab1-tab1-countries").selectBoxIt('refresh');
+  $("select#tab2-tab2-states").selectBoxIt('refresh');
+  $("select#tab3-tab3-styles").selectBoxIt('refresh');
+}

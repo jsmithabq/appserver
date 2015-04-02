@@ -39,9 +39,11 @@ angular.module('TabCtrl', [])
     'label': 'Countries:',
     'name': 'tab1-country'
   };
+  self.tab1.isReady = false;
   TabControllerRetrieveCountries.then(function(countries) {
     self.tab1.countries = countries;
     self.tab1.country = self.tab1.countries[0];
+    self.tab1.isReady = true;
     console.log('Default country: ', self.tab1.country);
   });
   self.tab1Submit = function() {
@@ -57,9 +59,11 @@ angular.module('TabCtrl', [])
     'label': 'States:',
     'name': 'tab2-state'
   };
+  self.tab2.isReady = false;
   TabControllerRetrieveStates.then(function(states) {
     self.tab2.states = states;
     self.tab2.state = self.tab2.states[0];
+    self.tab2.isReady = true;
     console.log('Default state: ', self.tab2.state);
   });
   self.tab2Submit = function() {
