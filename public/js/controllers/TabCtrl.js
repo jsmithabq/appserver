@@ -94,7 +94,10 @@ angular.module('TabCtrl', [])
     //var theme = String(styleBox.options[styleBox.selectedIndex].value);
     var styleBox = document.getElementById("tab3-tab3-styles");
     var theme = styleBox.options[styleBox.selectedIndex];
-    var fileName = "style-" + theme.value + ".css";
+    console.log("New theme name is: " + theme.text);
+    console.log("New theme index is: " + styleBox.selectedIndex);
+    self.tab3.style = self.tab3.styles[styleBox.selectedIndex].value;
+    var fileName = "style-" + self.tab3.style + ".css";
     console.log("New style is: " + fileName);
     var head = document.head || document.getElementsByTagName("head")[0];
     var i, linkster;
@@ -102,7 +105,7 @@ angular.module('TabCtrl', [])
       if ((linkster[i].rel.indexOf( "stylesheet" ) != -1) && linkster[i].id) {
         linkster[i].disabled = true;
         linkster[i].setAttribute("rel", "alternate stylesheet");
-        if (linkster[i].id == "style-" + theme) {
+        if (linkster[i].id == "style-" + self.tab3.style) {
           linkster[i].disabled = false;
           linkster[i].setAttribute("rel", "stylesheet");
         }
